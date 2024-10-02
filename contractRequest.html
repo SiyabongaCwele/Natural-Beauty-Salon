@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appointment</title>
+    <link rel="stylesheet" href="Styles/navBarStyle.css" />
+    <link rel="stylesheet" href="Styles/requestStyle.css" />
+  </head>
+  <body>
+    <!--NAVIGATION BAR-->
+    <nav class="navBar"> <!--Navigation bar as a container-->
+      <div class="logo"><img src="Images/HairStyle//Nails/logo.webp" class="sam" /></div><!--Container for the samsung logo-->
+      <ul class="navLinks"> <!--Un-Ordered list container-->
+        
+        <li class="navLink">
+          <a href="Home.html">HOME</a> <!--HOME-->
+        </li>
+
+        <li class="navLink services">
+          <a href="#" class="devicesDropDown">HAIR STYLES  <span class="dropDownIcon">&#11206</span></a> 
+          <ul class="dropDown">
+            <li>
+              <a href="WomenHairStyles.html">Women Style</a>
+  
+            </li>
+            <li>
+              <a href="ManHairStyle.html">Man Style</a>
+            </li>
+            <li>
+              <a href="Nails.html">Nails</a>
+            </li>
+          </ul>
+        </li>
+
+        
+
+        <li class="navLink">
+          <a href="contact.html">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+    <!--CONTENT SECTION-->
+    <div class="setView-Div">
+      <form class="form-Div" id="contractForm">
+        <h2>Appointment</h2>
+        <p>Enter your Name</p>
+        <input type="text" placeholder="Your name" id="name" name="name" required />
+        <p>Enter your Surname</p>
+        <input type="text" placeholder="Your surname" id="surname" name="surname" required />
+        <p>Enter Cellphone No</p>
+        <input type="text" placeholder="Your cellphone number" id="cellNumber" name="cellNumber" required />
+        <p>Enter your Email</p>
+        <input type="text" placeholder="Your email" id="mail" name="email" required />
+        <p>Enter your ID No</p>
+        <input type="text" placeholder="Your Identity Number" id="Id" name="Id" required />
+        <br>
+         <select id="type" name="type" required>
+         <option value="">--Select Product Type--</option>
+         <option value="Men HairStyle">Men HairStyle</option>
+         <option value="Women HairStyle">Women HairStyle</option>
+         <option value="Nails">Nails</option>
+         </select>
+         <br>
+         <p>Date book for</p>
+        <input type="date" placeholder="Select a Date" id="Date" name="Date" required/>
+
+        <div class="button-Div">
+          <div><button class="submit" type="button" onclick="validateAndOpenPopup()">Submit</button></div>
+        </div>
+        
+        <div class="terms-Div"><a href="terms.html">Terms&Conditions</a></div>
+      </form>
+    </div>
+    
+    <div class="popupContainer" id="popupContainer">
+      <div class="Popup" id="Popup">
+        <img src="Images/HairStyle/Nails/correct.jpeg">
+        <h2>Thank you!</h2>
+        <p>Your Request has been successfully submitted.<br>
+          We will contact you as soon as we see your message. <br>Thanks! </p>
+        <button type="button" onclick="closePopup()"><a href="WomenHairStyles.html">OK</button>
+      </div>
+    </div>
+    
+    <script>
+      let popup = document.getElementById("Popup");
+      let form = document.getElementById("contractForm");
+    
+      function openPopup() {
+        popup.classList.add("open-popup");
+      }
+    
+      function closePopup() {
+        popup.classList.remove("open-popup");
+      }
+    
+      function validateAndOpenPopup() {
+        let name = document.getElementById("name").value.trim();
+        let surname = document.getElementById("surname").value.trim();
+        let cellNumber = document.getElementById("cellNumber").value.trim();
+        let mail = document.getElementById("mail").value.trim();
+        let Id = document.getElementById("Id").value.trim();
+        let type = document.getElementById("type").value.trim();
+       
+    
+        if (name === "" || surname === "" || cellNumber === "" || mail === "" || Id === "" || type === "" ) {
+          alert("Please fill in all required fields.");
+        } else {
+          openPopup();
+        }
+      }
+    </script>
+    
+     
+  </body>
+</html>
